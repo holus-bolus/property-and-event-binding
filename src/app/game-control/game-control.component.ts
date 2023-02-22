@@ -7,11 +7,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class GameControlComponent {
   id: number;
   startInterval: any;
-  @Output() onChanged = new EventEmitter<boolean>();
+  lastNumber: number = 0;
+  @Output() intervalFired = new EventEmitter<number>();
 
-  start(increased: any) {
+  start() {
     this.startInterval = setInterval(() => {
-      this.onChanged.emit(increased);
+      this.intervalFired.emit(this.lastNumber + 1);
+      this.lastNumber++;
     }, 1000);
   }
 

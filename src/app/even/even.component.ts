@@ -6,12 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./even.component.css'],
 })
 export class EvenComponent implements OnInit {
-  @Input('secondsEl') evenSeconds: number;
+  @Input() number: number;
 
   constructor() {}
-  ngOnInit() {
-    if (this.evenSeconds % 2 === 0) {
-      console.log('even');
-    }
-  }
+  ngOnInit() {}
 }

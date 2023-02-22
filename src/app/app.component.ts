@@ -8,7 +8,14 @@ import { Component, Output } from '@angular/core';
 export class AppComponent {
   @Output('secondsEl') seconds: number = 0;
 
-  onChanged(increased: any) {
-    increased === true ? this.seconds++ : this.seconds--;
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+
+  onIntervalFired(firedNumber: number) {
+    if (firedNumber % 2 === 0) {
+      this.evenNumbers.push(firedNumber);
+    } else {
+      this.oddNumbers.push(firedNumber);
+    }
   }
 }
